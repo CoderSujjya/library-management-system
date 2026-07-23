@@ -27,7 +27,7 @@ A simple Library Management System built using Spring Boot, Spring MVC, JPA/Hibe
 3. Update `application.properties` with your own MySQL username and password
 4. Run the project using your IDE (Eclipse/IntelliJ) or with:
 5. Open your browser and go to:
-6. http://localhost:2727
+6. http://localhost:2121
 
 7. ## Author
 Made by CoderSujjya 
