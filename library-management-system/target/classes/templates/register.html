@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Library Management System - Register</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#4facfe,#00f2fe,#6a11cb);
+    background-size:400% 400%;
+    animation:bgMove 10s infinite alternate;
+}
+
+@keyframes bgMove{
+    0%{background-position:left;}
+    100%{background-position:right;}
+}
+
+.container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.card{
+    width:420px;
+    padding:35px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    box-shadow:0 15px 35px rgba(0,0,0,.3);
+    color:#fff;
+    animation:fadeIn .8s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.page-title{
+    position:absolute;
+    top:30px;
+    font-size:36px;
+    color:#fff;
+    font-weight:bold;
+    letter-spacing:2px;
+    text-shadow:2px 2px 10px rgba(0,0,0,.4);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:25px;
+    font-size:30px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:600;
+}
+
+input{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+input:focus{
+    transform:scale(1.02);
+    box-shadow:0 0 10px #00e5ff;
+}
+
+.btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(45deg,#00c6ff,#0072ff);
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,.3);
+}
+
+.link-row{
+    text-align:center;
+    margin-top:20px;
+}
+
+.link-row a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.link-row a:hover{
+    text-decoration:underline;
+}
+
+.error-msg{
+    background:#ff4d4d;
+    color:white;
+    padding:10px;
+    border-radius:8px;
+    margin-bottom:15px;
+    text-align:center;
+}
+
+@media(max-width:500px){
+    .card{
+        width:90%;
+        padding:25px;
+    }
+
+    .page-title{
+        font-size:24px;
+        text-align:center;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Create Account</h2>
+
+        <div class="error-msg" th:if="${error}" th:text="${error}"></div>
+
+        <form th:action="@{/register}" method="post">
+
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Enter Username" required>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Enter Password" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Enter Email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="fullName" placeholder="Enter Full Name" required>
+            </div>
+
+            <button type="submit" class="btn">
+                Register
+            </button>
+
+        </form>
+
+        <div class="link-row">
+            <a th:href="@{/login}">
+                Already have an account? Login
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
